@@ -3,17 +3,63 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 
+import { useState } from "react";
 interface FormProps {
   steps: number;
+  nextStep: () => void;
+  previousStep: () => void;
+  submit: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export interface UserDetails {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  github: string;
+  skillLevel: string;
+  challengePreference: string;
 }
 
-const Form = ({ steps }: FormProps) => {
+const Form = ({ steps, nextStep, previousStep, submit }: FormProps) => {
+  const [userDetails, setUserDetails] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    github: "",
+    skillLevel: "",
+    challengePreference: "",
+  } as UserDetails);
   return (
     <div className="h-[20rem]">
-      {steps === 1 && <Step1 />}
-      {steps === 2 && <Step2 />}
-      {steps === 3 && <Step3 />}
-    {steps === 4 && <Step4 />}
+      {steps === 1 && (
+        <Step1
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+          nextStep={nextStep}
+        />
+      )}
+      {steps === 2 && (
+        <Step2
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+          nextStep={nextStep}
+          previousSteps={previousStep}
+        />
+      )}
+      {steps === 3 && (
+        <Step3
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+          nextStep={nextStep}
+          previousSteps={previousStep}
+        />
+      )}
+      {steps === 4 && (
+        <Step4
+          userDetails={userDetails}
+          previousSteps={previousStep}
+          submit={submit}
+        />
+      )}
     </div>
   );
 };

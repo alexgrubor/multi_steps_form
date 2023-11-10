@@ -12,6 +12,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+          'custom-gradient': 'linear-gradient(0deg, #FC6C4C 0%, #FC6C4C 100%)',
       },
       width: {
         '45': '11.25rem', 
