@@ -29,7 +29,7 @@ const Form = ({ steps, nextStep, previousStep, submit }: FormProps) => {
     challengePreference: "",
   } as UserDetails);
   return (
-    <div className="h-[20rem]">
+    <>
       {steps === 1 && (
         <Step1
           userDetails={userDetails}
@@ -60,7 +60,7 @@ const Form = ({ steps, nextStep, previousStep, submit }: FormProps) => {
           submit={submit}
         />
       )}
-    </div>
+    </>
   );
 };
 export default Form;

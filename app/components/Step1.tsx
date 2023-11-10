@@ -27,20 +27,17 @@ const Step1 = ({ userDetails, setUserDetails, nextStep }: Step1Props) => {
     nextStep();
   };
   return (
-    <form onSubmit={buttonHandler} className="flex flex-col gap-2 p-6 ">
+    <form onSubmit={buttonHandler} className="flex w-full flex-col gap-2 p-6">
       <div>
-      <h2 className="text-[1.5rem] text-[#111827] p-2">Personal Information</h2>
-      <p className="text-[#6B7280] text-[0.8rem] mb-[1.5rem] p-2">
-        Please provide your personal details so we can get to know you better.
-      </p>
+        <h2 className="text-xl text-gray-900 p-2">Personal Information</h2>
+        <p className="text-gray-600 text-sm mb-6 p-2">
+          Please provide your personal details so we can get to know you better.
+        </p>
       </div>
       
-      <div className="flex flex-wrap ">
-        <div className="p-2 w-full sm:w-1/2">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-[#111827]"
-          >
+      <div className="flex flex-wrap">
+        <div className="p-2 w-full md:w-1/2">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-900">
             Full Name
           </label>
           <input
@@ -50,17 +47,11 @@ const Step1 = ({ userDetails, setUserDetails, nextStep }: Step1Props) => {
             defaultValue={userDetails.fullName}
             placeholder="John Doe"
             required
-            className="mt-1 p-2 focus:outline-none focus:ring focus:ring-[#FC6C4C] block w-full shadow-sm border-gray-300 rounded-[0.625rem] placeholder-gray-400"
-            style={{
-              border: "1px solid #D1D5DB",
-            }}
+            className="mt-1 p-2 focus:outline-none focus:ring focus:ring-[#FC6C4C] block w-full shadow-sm border-gray-300 rounded-md placeholder-gray-400"
           />
         </div>
-        <div className="p-2 w-full sm:w-1/2">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-[#111827]"
-          >
+        <div className="p-2 w-full md:w-1/2">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-900">
             Email Address
           </label>
           <input
@@ -70,17 +61,11 @@ const Step1 = ({ userDetails, setUserDetails, nextStep }: Step1Props) => {
             defaultValue={userDetails.email}
             placeholder="john.doe@example.com"
             required
-            className="mt-1 p-2 focus:outline-none focus:ring focus:ring-[#FC6C4C] block w-full shadow-sm border-gray-300 rounded-[0.625rem] placeholder-gray-400"
-            style={{
-              border: "1px solid #D1D5DB",
-            }}
+            className="mt-1 p-2 focus:outline-none focus:ring focus:ring-[#FC6C4C] block w-full shadow-sm border-gray-300 rounded-md placeholder-gray-400"
           />
         </div>
-        <div className="p-2 w-full sm:w-1/2">
-          <label
-            htmlFor="phone"
-            className="block text-sm font-medium text-[#111827]"
-          >
+        <div className="p-2 w-full md:w-1/2">
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
             Phone Number
           </label>
           <input
@@ -88,19 +73,13 @@ const Step1 = ({ userDetails, setUserDetails, nextStep }: Step1Props) => {
             name="phone"
             id="phone"
             placeholder="(555) 555-1234"
-            defaultValue={ userDetails.phoneNumber}
+            defaultValue={userDetails.phoneNumber}
             required
-            className="mt-1 p-2 focus:outline-none focus:ring focus:ring-[#FC6C4C] block w-full shadow-sm border-gray-300 rounded-[0.625rem] placeholder-gray-400"
-            style={{
-              border: "1px solid #D1D5DB",
-            }}
+            className="mt-1 p-2 focus:outline-none focus:ring focus:ring-[#FC6C4C] block w-full shadow-sm border-gray-300 rounded-md placeholder-gray-400"
           />
         </div>
-        <div className="p-2 w-full sm:w-1/2">
-          <label
-            htmlFor="portfolio"
-            className="block text-sm font-medium text-[#111827]"
-          >
+        <div className="p-2 w-full md:w-1/2">
+          <label htmlFor="portfolio" className="block text-sm font-medium text-gray-900">
             Portfolio/GitHub Link
           </label>
           <input
@@ -110,18 +89,15 @@ const Step1 = ({ userDetails, setUserDetails, nextStep }: Step1Props) => {
             defaultValue={userDetails.github}
             placeholder="https://github.com/johndoe"
             required
-            className="mt-1 p-2 focus:outline-none focus:ring focus:ring-[#FC6C4C] block w-full shadow-sm border-gray-300 rounded-[0.625rem] placeholder-gray-400"
-            style={{
-              border: "1px solid #D1D5DB",
-            }}
+            className="mt-1 p-2 focus:outline-none focus:ring focus:ring-[#FC6C4C] block w-full shadow-sm border-gray-300 rounded-md placeholder-gray-400"
           />
         </div>
       </div>
       <Dividender />
-      <div className="flex justify-end w-full mt-[1rem]">
+      <div className="flex justify-end w-full mt-4">
         <Button
           text="Next Step"
-          className=" text-white px-4 py-2 rounded-md bg-custom-gradient"
+          className="text-white px-4 py-2 rounded-md bg-custom-gradient"
         />
       </div>
     </form>

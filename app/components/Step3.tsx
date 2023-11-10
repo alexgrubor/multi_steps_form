@@ -24,9 +24,8 @@ const Step3 = ({
     }));
   };
   return (
-    <div className="w-[600px] my-4 mx-auto">
+    <div className=" my-4 mx-auto">
       <div className="p-2">
-        {" "}
         <h2 className="text-[1.5rem] text-[#111827]">Challenge Preference</h2>
         <p className="text-[#6B7280] text-[0.8rem] mb-[1.5rem]">
           Please tell us which frontend challenges you would like to participate

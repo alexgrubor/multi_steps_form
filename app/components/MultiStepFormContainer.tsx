@@ -20,49 +20,40 @@ const MultiStepForm = () => {
   }
 
   return (
-    <div
-      className="w-[40rem] h-[32.8125rem] flex flex-col justify-center items-center"
-      style={{
-        borderRadius: "1rem",
-        backgroundColor: "#fff",
-        boxShadow: "10px 10px 0px 0px rgba(250, 181, 100, 0.10) ",
-      }}
-    >
-      {!submitted && (
-        <>
-          <div className="flex gap-4 p-3">
-            {stepsNum.map((num, index) => (
-              <div key={num} className="flex items-center gap-6">
-                <div
-                  className={`w-[2rem] h-[2rem] cursor-pointer flex items-center justify-center rounded-full ${
-                    steps >= parseInt(num)
-                      ? "bg-[#FC6C4C] text-white"
-                      : "bg-[#E5E7EB] text-[#111827]"
-                  }`}
-                >
-                  {num}
-                </div>
-                {index < stepsNum.length - 1 && (
-                  <div
-                    className={`h-3 flex w-[6.25rem] ${
-                      steps > parseInt(num) ? "bg-[#FC6C4C]" : "bg-[#E5E7EB]"
-                    }`}
-                    key={`divider-${num}`}
-                    style={{ borderRadius: "3rem" }}
-                  ></div>
-                )}
+    <div className="flex flex-col justify-center items-center w-11/12 min-h-[60vh] max-w-4xl  p-4 rounded-lg mb-4 bg-white shadow-[10px_10px_0px_0px_rgba(250,181,100,0.10)]">
+    {!submitted ? (
+      <>
+        <div className="flex gap-4 p-3 flex-wrap">
+          {stepsNum.map((num, index) => (
+            <div key={num} className="flex items-center gap-6">
+              <div
+                className={`w-8 h-8 cursor-pointer flex items-center justify-center rounded-full ${
+                  steps >= parseInt(num)
+                    ? 'bg-[#FC6C4C] text-white'
+                    : 'bg-[#E5E7EB] text-[#111827]'
+                }`}
+              >
+                {num}
               </div>
-            ))}
-          </div>
-          <Dividender/>
-          <Form steps={steps} nextStep={nextStep} previousStep={previousStep} submit={setIsSubmitted} />
-       
-        </>
-      )}
-      {
-        submitted && <SuccessFullSubmit/>
-      }
-    </div>
+              {index < stepsNum.length - 1 && (
+                <div
+                  className={`h-1 flex ${
+                    steps > parseInt(num) ? 'bg-[#FC6C4C]' : 'bg-[#E5E7EB]'
+                  }`}
+                  key={`divider-${num}`}
+                  style={{ width: '5vw', maxWidth: '40px', borderRadius: '9999px' }}
+                ></div>
+              )}
+            </div>
+          ))}
+        </div>
+        <Dividender />
+        <Form steps={steps} nextStep={nextStep} previousStep={previousStep} submit={setIsSubmitted} />
+      </>
+    ) : (
+      <SuccessFullSubmit />
+    )}
+  </div>
   );
 };
 export default MultiStepForm;
